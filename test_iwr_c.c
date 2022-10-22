@@ -249,8 +249,8 @@ int readAndParseData16xx()
                 byteBuffer[i] = readbuf;
                 byteVec[i] = readbuf;
 
-                readbytes += nbbytes; // here nbbytes is alwayes equal to 1
-                // printf("%X ", byteBuffer[i]); // print the read caracters on the screen
+                readbytes += nbbytes; // nbbytes = 1
+                // printf("%X ", byteBuffer[i]); 
             }
             else
             {
@@ -277,7 +277,7 @@ int readAndParseData16xx()
     }
     printf("\n ");
     printf("byteBufferLength + byteCount < maxBufferSize , byteBufferLength  is - %i \n", byteBufferLength);
-    //индексы magicword пишем в startIdx
+    //index magicword wrute in to startIdx
     int startIdx[10000];
     int lengtstartIdx = 0;
     if (byteBufferLength > 16)
@@ -332,7 +332,7 @@ int readAndParseData16xx()
 
         for (int i = 0; i <= 8; i++)
         {
-            magicNumber[i] = byteBuffer[i]; // malloc?
+            magicNumber[i] = byteBuffer[i]; // malloc
         }
         idX = idX + 8;
         /*version and platform convert to 16 in python*/
@@ -363,7 +363,7 @@ int readAndParseData16xx()
             if (tlv_type == MMWDEMO_UART_MSG_DETECTED_POINTS)
             {
 
-                tlv_numObj = 1 * byteBuffer[idX] + 256 * byteBuffer[idX + 1]; // множим множим , конвертим 4 байта в 16
+                tlv_numObj = 1 * byteBuffer[idX] + 256 * byteBuffer[idX + 1]; // convecrt 4 bites in to 16
 
                 idX += 2;
                 tlv_xyzQFormat = pow(2, word[0] * byteBuffer[idX] + word[1] * byteBuffer[idX + 1]);
@@ -382,7 +382,7 @@ int readAndParseData16xx()
                 for (int i = 0; i < tlv_numObj; i++)
                 {
 
-                    //откуда начинается idX ?
+                   
                     // int idX=5;
                     rangeIdxs[i] = word[0] * byteBuffer[idX] + word[1] * byteBuffer[idX + 1];
                     idX += 2;
@@ -441,7 +441,7 @@ int readAndParseData16xx()
             for (int i = 0, j = shiftSize; j < byteBufferLength; i++, j++)
             {
                 byteBuffer[i] = byteBuffer[j];
-                // printf("\n ololoshka, byteBuffer is %i", byteBuffer[i]); //----------------------------------
+                // printf("\n usr, byteBuffer is %i", byteBuffer[i]); //----------------------------------
             }
             for (int i = cut2; i < byteBufferLength; i++)
             {
